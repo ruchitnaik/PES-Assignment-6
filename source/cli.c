@@ -29,24 +29,28 @@ static void handle_author(int argc, char *argv[]){
 }
 
 
+static void handle_unknown(int argc, char *argv[]){
+	printf("Invalid Command\r\n");
+}
+
+
 static void handle_dump(int argc, char *argv[]){
-//	uint32_t origin = *argv[1];
 	uint32_t origin = 0;
+	size_t len = 0;
+	if(argc != 3){
+		handle_unknown(argc, argv);
+		return;
+	}
 	sscanf(*(&argv[1]), "%x", &origin);
-	size_t len = 0;// = *argv[2];
 	sscanf(*(&argv[2]), "%i", &len);
 	hexdump((void*)origin, len);
 }
 
 
-static void handle_unknown(int argc, char *argv[]){
-	printf("Invalid Command\r\n");
-}
-
 static void handle_help(int argc, char *argv[]){
-	printf("Command: Author ; Arguments: <> ; Description: Prints a string with your name.\r\n");
-	printf("Command: Dump ; Arguments: <Start>, <Len> ; Description: Prints a hexdump of the memory requested \r\n");
-	printf("Command: Info ; Arguments: <> ; Description: Prints Build Information.\r\n");
+	printf("Command: Author ; Arguments: <> ; Brief: Prints a string with your name.\r\n");
+	printf("Command: Dump ; Arguments: <Start>, <Len> ; Brief: Prints a hexdump of the memory requested; <Start> in hex; <Len> can be in any format \r\n");
+	printf("Command: Info ; Arguments: <> ; Brief: Prints Build Information.\r\n");
 }
 
 static void handle_info(int argc, char *argv[]){
@@ -85,7 +89,7 @@ void Process_Message(char *input){
 	for(ptr = input; ptr < end; ptr++){
 			if(*ptr == ' '){				//Check on spaces
 				if(!in_token){
-					ptr++;					//Ignore spaces if not a token
+					*ptr = ' ';					//Ignore spaces if not a token
 				}
 				else{
 					*ptr = '\0';			//Fill up the space after token with \0

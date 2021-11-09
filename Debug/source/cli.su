@@ -1,6 +1,6 @@
 cli.c:27:13:handle_author	16	static
-cli.c:32:13:handle_dump	24	static
-cli.c:42:13:handle_unknown	16	static
-cli.c:46:13:handle_help	16	static
-cli.c:52:13:handle_info	16	static
-cli.c:72:6:Process_Message	88	static
+cli.c:32:13:handle_unknown	16	static
+cli.c:37:13:handle_dump	24	static
+cli.c:50:13:handle_help	16	static
+cli.c:56:13:handle_info	16	static
+cli.c:76:6:Process_Message	88	static

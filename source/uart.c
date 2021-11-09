@@ -132,15 +132,14 @@ void UART0_IRQHandler(void){
 
 	if((UART0->C2 & UART0_C2_TIE_MASK) && (UART0->C2 & UART0_S1_TDRE_MASK)){
 		//Entered here when Tx buffer is empty. Can send another character
-		if(!cbfifo_empty(&TxQ)){
-			cbfifo_dequeue(&TxQ, &chatr, 1);
+//		if(!cbfifo_empty(&TxQ)){
+//			cbfifo_dequeue(&TxQ, &chatr, 1);
+//			UART0->D = chatr;
+//		}
+//		Using the below code instead of above could have atomic functionality
+		if(cbfifo_dequeue(&TxQ, &chatr, 1) == 1){
 			UART0->D = chatr;
 		}
-		/* Using the below code instead of above could have atomic functionality
-		 * if((cbfifo_dequeue(&TxQ, &chatr, 1) == 1){
-		 * 		UART0->D = chatr;
-		 * }
-		 */
 		else{
 			//Queue empty -> Tx interrupts disabled
 			UART0->C2 &= ~UART0_C2_TIE_MASK;
