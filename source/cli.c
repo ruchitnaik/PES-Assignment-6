@@ -48,9 +48,9 @@ static void handle_dump(int argc, char *argv[]){
 
 
 static void handle_help(int argc, char *argv[]){
-	printf("Command: Author ; Arguments: <> ; Brief: Prints a string with your name.\r\n");
-	printf("Command: Dump ; Arguments: <Start>, <Len> ; Brief: Prints a hexdump of the memory requested; <Start> in hex; <Len> can be in any format \r\n");
-	printf("Command: Info ; Arguments: <> ; Brief: Prints Build Information.\r\n");
+	printf("Command: Author | Arg: <> | Brief: Prints a string with your name.\r\n");
+	printf("Command: Dump | Arg: <Start>, <Len> | Brief: Prints a hexdump of the memory requested; <Start> in hex; <Len> any format.\r\n");
+	printf("Command: Info | Arg: <> | Brief: Prints Build Information.\r\n");
 }
 
 static void handle_info(int argc, char *argv[]){

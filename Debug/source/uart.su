@@ -5,6 +5,6 @@ libconfig-arm.h:247:5:__sys_write	24	static
 libconfig-arm.h:241:5:__sys_readc	16	static
 uart.c:57:6:Init_UART0	32	static
 uart.c:113:6:UART0_IRQHandler	16	static
-uart.c:151:6:send_String	16	static
-uart.c:161:8:receive_String	16	static
-uart.c:165:6:cmd_accumulate	656	static
+uart.c:146:6:send_String	16	static
+uart.c:156:8:receive_String	16	static
+uart.c:160:6:cmd_accumulate	656	static

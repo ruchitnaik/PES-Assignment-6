@@ -14,7 +14,7 @@ int main(void)
   sysclock_init();
 
   // TODO: initialize the UART here
-  Init_UART0(38400);
+  Init_UART0(BAUD_RATE);
 
   test_cbfifo();
 

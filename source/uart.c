@@ -78,11 +78,11 @@ void Init_UART0(uint32_t baud_rate){
 	UART0->BDL = UART0_BDL_SBR(sbr);
 	UART0->C4 |= UART0_C4_OSR(UART_OVERSAMPLE_RATE - 1);
 
-	// Disable interrupts for RX active edge and LIN break detect, select one stop bit
-	UART0->BDH |= UART0_BDH_RXEDGIE(0) | UART0_BDH_SBNS(0) | UART_BDH_LBKDIE(0);
+	// Disable interrupts for RX active edge and LIN break detect, select two stop bit
+	UART0->BDH |= UART0_BDH_RXEDGIE(0) | UART0_BDH_SBNS(STOP_CONFIG) | UART_BDH_LBKDIE(0);
 
 	//Don't enable loopback mode, use 8 data bit mode, don't use parity
-	UART0->C1 = UART0_C1_LOOPS(0) | UART0_C1_M(0) | UART0_C1_PE(0) | UART0_C1_PT(0);
+	UART0->C1 = UART0_C1_LOOPS(0) | UART0_C1_M(BIT_MODE) | UART0_C1_PE(PARITY_ENABLE) | UART0_C1_PT(0);
 	//Don't invert transit data, do enable interrupt for errors
 	UART0->C3 = UART0_C3_TXINV(0) | UART0_C3_ORIE(0) | UART0_C3_NEIE(0)
 				| UART0_C3_FEIE(0) | UART0_C3_PEIE(0);
@@ -132,11 +132,6 @@ void UART0_IRQHandler(void){
 
 	if((UART0->C2 & UART0_C2_TIE_MASK) && (UART0->C2 & UART0_S1_TDRE_MASK)){
 		//Entered here when Tx buffer is empty. Can send another character
-//		if(!cbfifo_empty(&TxQ)){
-//			cbfifo_dequeue(&TxQ, &chatr, 1);
-//			UART0->D = chatr;
-//		}
-//		Using the below code instead of above could have atomic functionality
 		if(cbfifo_dequeue(&TxQ, &chatr, 1) == 1){
 			UART0->D = chatr;
 		}
