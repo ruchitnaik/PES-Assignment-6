@@ -1,0 +1,8 @@
+queue.c:26:6:cbfifo_Init	24	static
+queue.c:40:6:cbfifo_full	16	static
+queue.c:44:6:cbfifo_empty	16	static
+queue.c:48:5:cbfifo_size	16	static
+queue.c:60:8:cbfifo_length	24	static
+queue.c:88:8:cbfifo_enqueue	32	static
+queue.c:154:8:cbfifo_dequeue	32	static
+queue.c:193:8:cbfifo_capacity	8	static
