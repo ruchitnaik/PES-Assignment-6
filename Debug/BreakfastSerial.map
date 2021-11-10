@@ -1129,31 +1129,31 @@ END GROUP
 OUTPUT(BreakfastSerial.axf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x00000000     0x26a3
+.debug_info     0x00000000     0x2697
  .debug_info    0x00000000      0x4df ./startup/startup_mkl25z4.o
  .debug_info    0x000004df      0x455 ./source/cli.o
  .debug_info    0x00000934      0x289 ./source/hexdump.o
- .debug_info    0x00000bbd      0x225 ./source/main.o
- .debug_info    0x00000de2       0x53 ./source/mtb.o
- .debug_info    0x00000e35      0x429 ./source/queue.o
- .debug_info    0x0000125e       0x3c ./source/semihost_hardfault.o
- .debug_info    0x0000129a      0x1e4 ./source/sysclock.o
- .debug_info    0x0000147e      0x33d ./source/test_queue.o
- .debug_info    0x000017bb      0xaaf ./source/uart.o
- .debug_info    0x0000226a      0x439 ./CMSIS/system_MKL25Z4.o
+ .debug_info    0x00000bbd      0x219 ./source/main.o
+ .debug_info    0x00000dd6       0x53 ./source/mtb.o
+ .debug_info    0x00000e29      0x429 ./source/queue.o
+ .debug_info    0x00001252       0x3c ./source/semihost_hardfault.o
+ .debug_info    0x0000128e      0x1e4 ./source/sysclock.o
+ .debug_info    0x00001472      0x33d ./source/test_queue.o
+ .debug_info    0x000017af      0xaaf ./source/uart.o
+ .debug_info    0x0000225e      0x439 ./CMSIS/system_MKL25Z4.o
 
-.debug_abbrev   0x00000000      0xcf9
+.debug_abbrev   0x00000000      0xcea
  .debug_abbrev  0x00000000      0x18d ./startup/startup_mkl25z4.o
  .debug_abbrev  0x0000018d      0x15b ./source/cli.o
  .debug_abbrev  0x000002e8      0x12d ./source/hexdump.o
- .debug_abbrev  0x00000415       0xe9 ./source/main.o
- .debug_abbrev  0x000004fe       0x46 ./source/mtb.o
- .debug_abbrev  0x00000544      0x196 ./source/queue.o
- .debug_abbrev  0x000006da       0x31 ./source/semihost_hardfault.o
- .debug_abbrev  0x0000070b       0xef ./source/sysclock.o
- .debug_abbrev  0x000007fa      0x14d ./source/test_queue.o
- .debug_abbrev  0x00000947      0x25c ./source/uart.o
- .debug_abbrev  0x00000ba3      0x156 ./CMSIS/system_MKL25Z4.o
+ .debug_abbrev  0x00000415       0xda ./source/main.o
+ .debug_abbrev  0x000004ef       0x46 ./source/mtb.o
+ .debug_abbrev  0x00000535      0x196 ./source/queue.o
+ .debug_abbrev  0x000006cb       0x31 ./source/semihost_hardfault.o
+ .debug_abbrev  0x000006fc       0xef ./source/sysclock.o
+ .debug_abbrev  0x000007eb      0x14d ./source/test_queue.o
+ .debug_abbrev  0x00000938      0x25c ./source/uart.o
+ .debug_abbrev  0x00000b94      0x156 ./CMSIS/system_MKL25Z4.o
 
 .debug_aranges  0x00000000      0x350
  .debug_aranges
@@ -1233,18 +1233,18 @@ LOAD linker stubs
  .debug_macro   0x000070fa       0x10 ./CMSIS/system_MKL25Z4.o
  .debug_macro   0x0000710a     0x1352 ./CMSIS/system_MKL25Z4.o
 
-.debug_line     0x00000000     0x210c
+.debug_line     0x00000000     0x210a
  .debug_line    0x00000000      0x1e7 ./startup/startup_mkl25z4.o
  .debug_line    0x000001e7      0x2eb ./source/cli.o
  .debug_line    0x000004d2      0x2e7 ./source/hexdump.o
- .debug_line    0x000007b9      0x2ce ./source/main.o
- .debug_line    0x00000a87       0xd1 ./source/mtb.o
- .debug_line    0x00000b58      0x403 ./source/queue.o
- .debug_line    0x00000f5b       0x59 ./source/semihost_hardfault.o
- .debug_line    0x00000fb4      0x24a ./source/sysclock.o
- .debug_line    0x000011fe      0x674 ./source/test_queue.o
- .debug_line    0x00001872      0x567 ./source/uart.o
- .debug_line    0x00001dd9      0x333 ./CMSIS/system_MKL25Z4.o
+ .debug_line    0x000007b9      0x2cc ./source/main.o
+ .debug_line    0x00000a85       0xd1 ./source/mtb.o
+ .debug_line    0x00000b56      0x403 ./source/queue.o
+ .debug_line    0x00000f59       0x59 ./source/semihost_hardfault.o
+ .debug_line    0x00000fb2      0x24a ./source/sysclock.o
+ .debug_line    0x000011fc      0x674 ./source/test_queue.o
+ .debug_line    0x00001870      0x567 ./source/uart.o
+ .debug_line    0x00001dd7      0x333 ./CMSIS/system_MKL25Z4.o
 
 .debug_str      0x00000000    0x30f68
  .debug_str     0x00000000     0x319c ./startup/startup_mkl25z4.o
@@ -1254,7 +1254,7 @@ LOAD linker stubs
  .debug_str     0x00004d74       0x39 ./source/hexdump.o
                                0x490b (size before relaxing)
  .debug_str     0x00004dad    0x2489a ./source/main.o
-                              0x2934d (size before relaxing)
+                              0x29347 (size before relaxing)
  .debug_str     0x00029647      0x532 ./source/mtb.o
                                0x32dd (size before relaxing)
  .debug_str     0x00029b79       0xb3 ./source/queue.o

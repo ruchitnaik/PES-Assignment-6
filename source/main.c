@@ -19,19 +19,11 @@ int main(void)
   test_cbfifo();
 
   char str[] = "Welcome to BreakfastSerial!\r\n";
-  uint32_t start;
   send_String(str, sizeof(str));
-//  start = 0x00;
-//  hexdump((void*)start, 128);
-//  printf("---New Dump---\r\n");
-//  start = 0xa0;
-//  hexdump((void*)start, 128);
   // enter infinite loop
   while (1) {
-//    __asm volatile ("nop");
 	  printf("? ");
 	  cmd_accumulate();
   }
-
   return 0 ;
 }

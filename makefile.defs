@@ -1,0 +1,9 @@
+VERSION_TAG = "1.0"
+GIT_LOG := $(shell git log --pretty=format:"%H" HEAD -1)
+BUILD_MACHINE := $(shell echo %username%)@$(shell hostname)
+BUILD_DATE := $(shell python -c "from datetime import datetime; print(datetime.utcnow().strftime('%d/%m/%Y, %H:%M'))")
+
+GEN_OPTS__FLAG = -DVERSION_TAG="\"$(VERSION_TAG)\""
+GEN_OPTS__FLAG += -DGIT_LOG="\"$(GIT_LOG)\""
+GEN_OPTS__FLAG += -DBUILD_MACHINE="\"$(BUILD_MACHINE)\""
+GEN_OPTS__FLAG += -DBUILD_DATE="\"$(BUILD_DATE)\""
