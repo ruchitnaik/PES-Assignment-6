@@ -63,10 +63,10 @@ static void handle_info(int argc, char *argv[]){
 
 //Cmd Look-up table
 static const command_table_t command[] = {
-		{"author", handle_author},
-		{"dump", handle_dump},
-		{"help", handle_help},
-		{"info", handle_info},
+		{"author", handle_author, "Command: Author | Arg: <> | Brief: Prints a string with your name.\r\n"},
+		{"dump", handle_dump, "Command: Dump | Arg: <Start>, <Len> | Brief: Prints a hexdump of the memory requested; <Start> in hex; <Len> any format.\r\n"},
+		{"help", handle_help, "Command: Help | Arg: <> | Brief: Prints the user help info for all the commands in the lookup table.\r\n"},
+		{"info", handle_info, "Command: Info | Arg: <> | Brief: Prints Build Information.\r\n"},
 		{"", handle_unknown}
 };
 
