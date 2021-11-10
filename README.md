@@ -16,7 +16,7 @@ To know the format of valid commands for CLI, the user must first type in the "h
 
 ### List of Commands  
 - ``` Command: Author ``` | Arg: <> | Brief: Prints a string with your name.  
-- ``` Command: Dump ``` | Arg: <Start>, <Len> | Brief: Prints a hexdump of the memory requested; <Start> in hex; <Len> any format.  
+- ``` Command: Dump ``` | Arg: (Start), (Len) | Brief: Prints a hexdump of the memory requested; (Start) in hex; (Len) any format.  
 - ``` Command: Info ``` | Arg: <> | Brief: Prints Build Information.  
 - ``` Command: Help ``` | Arg: <> | Brief: Prints the user help info for all the commands in the lookup table.  
 
