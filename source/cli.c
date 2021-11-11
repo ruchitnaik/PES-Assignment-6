@@ -30,7 +30,7 @@ static void handle_author(int argc, char *argv[]){
 
 
 static void handle_unknown(int argc, char *argv[]){
-	printf("Invalid Command\r\n");
+	printf("Invalid Command: %s\r\n", argv[0]);
 }
 
 
