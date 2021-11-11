@@ -112,14 +112,14 @@ void Init_UART0(uint32_t baud_rate){
 
 void UART0_IRQHandler(void){
 	uint8_t chatr;
-	if(UART0->S1 & (UART_S1_OR_MASK | UART_S1_NF_MASK |
-			        UART_S1_FE_MASK | UART_S1_PF_MASK)){
-		//Clearing the error flags
-		UART0->S1 |= UART0_S1_OR_MASK | UART0_S1_NF_MASK |
-					 UART0_S1_FE_MASK | UART0_S1_PF_MASK;
-		//Read the data register
-		chatr = UART0->D;
-	}
+//	if(UART0->S1 & (UART_S1_OR_MASK | UART_S1_NF_MASK |
+//			        UART_S1_FE_MASK | UART_S1_PF_MASK)){
+//		//Clearing the error flags
+//		UART0->S1 |= UART0_S1_OR_MASK | UART0_S1_NF_MASK |
+//					 UART0_S1_FE_MASK | UART0_S1_PF_MASK;
+//		//Read the data register
+//		chatr = UART0->D;
+//	}
 
 	if(UART0->S1 & UART0_S1_RDRF_MASK){
 		//Entered here when character is received
