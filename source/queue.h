@@ -13,6 +13,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <MKL25Z4.h>
 
 #define MAXSIZE		256					//Static size of cbfifo
 #define min(x,y)	((x)<(y)?(x):(y))

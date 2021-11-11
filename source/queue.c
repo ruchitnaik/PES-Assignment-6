@@ -103,7 +103,9 @@ size_t cbfifo_enqueue(CBfifo *queue, const void *buf, size_t nbyte){
 		}
 		memcpy(queue->data, buf, len1);
 		queue->readp = 0;
+		NVIC_DisableIRQ(UART0_IRQn);
 		queue->size = queue->size + len1 + len2;
+		NVIC_EnableIRQ(UART0_IRQn);
 		return len1 + len2;
 	}
 
@@ -118,7 +120,9 @@ size_t cbfifo_enqueue(CBfifo *queue, const void *buf, size_t nbyte){
 
 		queue->writep = 0;
 		if(queue->readp == 0){
+			NVIC_DisableIRQ(UART0_IRQn);
 			queue->size = queue->size + (len1 + len2);					//Updating the queue size after enqueue
+			NVIC_EnableIRQ(UART0_IRQn);
 			queue->full_queue = true;
 			return len1 + len2;
 		}
@@ -135,8 +139,9 @@ size_t cbfifo_enqueue(CBfifo *queue, const void *buf, size_t nbyte){
 	if(queue->writep == queue->readp){
 		queue->full_queue = true;
 	}
-
+	NVIC_DisableIRQ(UART0_IRQn);
 	queue->size = queue->size + len1 + len2;
+	NVIC_EnableIRQ(UART0_IRQn);
 
 	return (len1 + len2);
 }
@@ -156,7 +161,9 @@ size_t cbfifo_dequeue(CBfifo *queue, void *buf, size_t nbyte){
 	size_t len2 = 0;
 
 	if(cbfifo_empty(queue) && !queue->full_queue){
+		NVIC_DisableIRQ(UART0_IRQn);
 		queue->size = queue->size - (len1 + len2);
+		NVIC_EnableIRQ(UART0_IRQn);
 		return 0;
 	}
 
@@ -170,7 +177,9 @@ size_t cbfifo_dequeue(CBfifo *queue, void *buf, size_t nbyte){
 	queue->readp = queue->readp + len1;											//Updating the read pointer
 
 	if(queue->readp < MAXSIZE){
-		queue->size = queue->size - (len1 + len2);										//Updating size of the buffer
+		NVIC_DisableIRQ(UART0_IRQn);
+		queue->size = queue->size - (len1 + len2);								//Updating size of the buffer
+		NVIC_EnableIRQ(UART0_IRQn);
 		return (len1 + len2);
 	}
 
@@ -193,34 +202,3 @@ size_t cbfifo_dequeue(CBfifo *queue, void *buf, size_t nbyte){
 size_t cbfifo_capacity(){
 	return MAXSIZE;
 }
-
-
-
-///*
-// * @Function	cbfifo_dump_state
-// * @Param		none
-// * @Returns		none
-// * @Description	prints the current state of the fifo for debug purposes
-// */
-//void cbfifo_dump_state(CBfifo *queue){
-//	if(queue->writep >= queue->readp){
-//		int inc = queue->readp;
-//		while(inc <= queue->writep){
-//			printf("%c,", CBfifo_t.data[inc]);
-//			inc++;
-//		}
-//	}
-//	else{
-//		int inc = CBfifo_t.readp;
-//		while(inc <= MAXSIZE){
-//			printf("%c,", CBfifo_t.data[inc]);
-//			inc++;
-//		}
-//		inc = 0;
-//		while(inc <= CBfifo_t.writep){
-//			printf("%c,", CBfifo_t.data[inc]);
-//			inc++;
-//		}
-//	}
-//}
-

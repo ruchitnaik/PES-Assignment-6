@@ -44,7 +44,7 @@
 
 #if (STOP_BITS == 1)
 #define STOP_CONFIG		0
-#else
+#elif (STOP_BITS == 2)
 #define STOP_CONFIG		1
 #endif
 
